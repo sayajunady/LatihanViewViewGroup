@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +22,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val imgPhone = findViewById<ImageView>(R.id.image_phone)
         imgPhone.setOnClickListener(this)
+
+        val txtPrice = findViewById<TextView>(R.id.text_price)
+        txtPrice.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -42,6 +46,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 web.setData(Uri.parse(url))
                 startActivity(web)
             }
+
+            R.id.text_price -> {
+                val url = "https://www.tokopedia.com/"
+                val web = Intent(Intent.ACTION_VIEW)
+                web.setData(Uri.parse(url))
+                startActivity(web)
+            }
+            }
         }
     }
-}
