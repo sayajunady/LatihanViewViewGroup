@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +18,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val btnDial = findViewById<Button>(R.id.button_call)
         btnDial.setOnClickListener(this)
+
+        val imgPhone = findViewById<ImageView>(R.id.image_phone)
+        imgPhone.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -30,6 +34,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val phoneNumber = "0823474849494"
                 val dialNumber = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
                 startActivity(dialNumber)
+            }
+
+            R.id.image_phone ->{
+                val url = "https://shopee.co.id/"
+                val web = Intent(Intent.ACTION_VIEW)
+                web.setData(Uri.parse(url))
+                startActivity(web)
             }
         }
     }
